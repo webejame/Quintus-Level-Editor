@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quintus Level Editor</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.css">
+	<script type="text/javascript" src="js/jquery.1.9.1.js"></script>	
+	<script type="text/javascript" src="js/jquery-ui-1.10.1.custom.js"></script>	
+	<script type="text/javascript" src="js/quintus_level_editor.js"></script>
+</head>
+<body>
+
+	<div id="assets">
+		
+	</div>
+
+	<div id="controll_bar">
+
+		<form id="file_upload_form" method="post" enctype="multipart/form-data" action="lib/upload.php">
+			<input name="uploadedfile" id="uploadedfile" size="27" type="file">
+			<label for="sprite_width">Sprite Width:</label>
+			<input type="text" name="sprite_width" id="sprite_width" value="32">
+			<label for="sprite_height">Sprite Height:</label>
+			<input type="text" name="sprite_height" id="sprite_height" value="32">
+			<label for="start_x">Start X:</label>
+			<input type="text" name="start_x" id="start_x" value="0">
+			<label for="start_y">Start Y:</label>
+			<input type="text" name="start_y" id="start_y" value="0">
+			<label for="sprite_cols">Columns:</label>
+			<input type="text" name="sprite_cols" id="sprite_cols" value="1">
+			<input type="submit" name="action" value="Upload">
+		</form>
+
+		<br/><br />
+
+		<label for="stage_bg">Stage Background ( #Hex ):</label>
+		<input type="text" name="stage_bg" id="stage_bg" value="#6b8cff">
+		<label for="stage_width">Stage Width:</label>
+		<input type="text" name="stage_width" id="stage_width" value="800">
+		<label for="stage_height">Stage Height:</label>
+		<input type="text" name="stage_height" id="stage_height" value="400">
+		<button id="buildstage">Build Stage</button>
+
+		<br/><br />
+
+		<button id="exportLevel">Export Level</button>
+		<textarea id="exportResult"></textarea>
+
+	</div>
+
+
+
+	<div id="stage">
+		
+	</div>
+
+
+</body>
+</html>
+
+
+
