@@ -45,6 +45,7 @@ p{
 	display: inline-block;
 }
 #assets{
+	display: table;
 	clear: both;
 	width: 100%;
 	background: #cccccc;
