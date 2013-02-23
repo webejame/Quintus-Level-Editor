@@ -10,9 +10,7 @@
 </head>
 <body>
 
-	<div id="assets">
-		
-	</div>
+	<div id="assets"></div>
 
 	<div id="controll_bar">
 
@@ -28,12 +26,12 @@
 			<input type="text" name="start_y" id="start_y" value="0">
 			<label for="sprite_cols">Columns:</label>
 			<input type="text" name="sprite_cols" id="sprite_cols" value="1">
-			<input type="submit" name="action" value="Upload">
+			<button type="submit" name="action">Upload</button>
 		</form>
 
 		<br/><br />
 
-		<label for="stage_bg">Stage Background ( #Hex ):</label>
+		<label for="stage_bg">Background:</label>
 		<input type="text" name="stage_bg" id="stage_bg" value="#6b8cff">
 		<label for="stage_width">Stage Width:</label>
 		<input type="text" name="stage_width" id="stage_width" value="800">
@@ -43,22 +41,17 @@
 
 		<br/><br />
 
-		<button id="exportLevel">Export Level</button>
-		<textarea id="exportResult"></textarea>
+		<button id="exportLevel">Export Level</button><br />
+		<textarea rows="5" cols="35" id="exportResult"></textarea>
 
 	</div>
 
 
-<div id="stageContainer">
-	<div id="stage">
-		
-	</div>
-</div>
-	
+	<div id="stageContainer">
+		<div id="stage">
 
+		</div>
+	</div>
 
 </body>
 </html>
-
-
-
