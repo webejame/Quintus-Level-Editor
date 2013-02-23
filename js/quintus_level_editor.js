@@ -19,8 +19,8 @@ jQuery(document).ready(function(){
 	}
 
 	getImages();
-	tiles[tileCount] = 'width:32px; height:32px;';
-	jQuery('#assets').append('<div class="texture clearBlock" rel="'+tileCount+'" style="'+tiles[tileCount]+'" />');
+	tiles[tileCount] = 'background: '+jQuery('#stage_bg').val()+'; width:32px; height:32px;';
+	jQuery('#assets').append('<div class="texture clearBlock" rel="'+tileCount+'" style="'+tiles[tileCount]+'">Clear</div>');
 	function getImages(){
 		jQuery('#assets').html('');
 		jQuery.ajax({
@@ -77,7 +77,7 @@ jQuery(document).ready(function(){
 		for(var i = 0; i < (cols * rows); i++){
 			var rel = leveldata ? leveldata[rowCount][colCount] : 0;
 			
-			jQuery('#stage').append('<div class="stageblock" rel="'+rel+'" style="background: '+tiles[rel]+';" />');
+			jQuery('#stage').append('<div class="stageblock" rel="'+rel+'" style="'+tiles[rel]+'" />');
 			jQuery('.stageblock').droppable({ drop: Drop });
 
 			if(colCount < cols-1){

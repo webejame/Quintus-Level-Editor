@@ -57,3 +57,6 @@ body{
 .ui-widget-header{
 	border: none!important;
 }
+.clearBlock{
+	float:left;
+}
