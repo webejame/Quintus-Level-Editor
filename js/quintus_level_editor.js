@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
 	var cols;
 	var rows;
 	var tileCount = 0;
+	var tiles = Array;
 
 	function make_user_key(length)
 	{
@@ -18,7 +19,8 @@ jQuery(document).ready(function(){
 	}
 
 	getImages();
-	jQuery('#assets').append('<div class="texture clearBlock" rel="'+tileCount+'" style="width:32px; height:32px; " />');
+	tiles[tileCount] = 'width:32px; height:32px;';
+	jQuery('#assets').append('<div class="texture clearBlock" rel="'+tileCount+'" style="'+tiles[tileCount]+'" />');
 	function getImages(){
 		jQuery('#assets').html('');
 		jQuery.ajax({
@@ -32,7 +34,8 @@ jQuery(document).ready(function(){
 
 					for(var ii = 0; ii < imgdata.sc; ii++){
 						tileCount++;
-						jQuery('#assets').append('<div class="texture" rel="'+tileCount+'" style="width:'+imgdata.sw+'px; height:'+imgdata.sh+'px; background-image: url('+image+'); background-position: -'+imgdata.sx+'px -'+imgdata.sy+'px;"></div>');
+						tiles[tileCount] = 'width:'+imgdata.sw+'px; height:'+imgdata.sh+'px; background-image: url('+image+'); background-position: -'+imgdata.sx+'px -'+imgdata.sy+'px;';
+						jQuery('#assets').append('<div class="texture" rel="'+tileCount+'" style="'+tiles[tileCount]+'"></div>');
 						imgdata.sx = +imgdata.sx + +imgdata.sw;
 					}
 					jQuery('.texture').draggable({
@@ -52,30 +55,44 @@ jQuery(document).ready(function(){
 	};
 
 	jQuery('#buildstage').click(function(){
-		if(jQuery('#stage').length > 0){
-			jQuery('#stage').html('');
-		}
 		var sw = jQuery('#stage_width').val();
 		var sh = jQuery('#stage_height').val();
 		var bg = jQuery('#stage_bg').val();
+		buildStage(sw, sh, bg);
+	});
+
+	function buildStage(sw, sh, bg, leveldata){
+		if(jQuery('#stage').length > 0){
+			jQuery('#stage').html('');
+		}
 
 		cols = Math.round(sw / 32);
 		rows = Math.round(sh / 32);
 
 		jQuery('#stage').css('width', sw)
-		.css('height', sh);
+						.css('height', sh);
 
+		var rowCount = 0;
+		var colCount = 0;
 		for(var i = 0; i < (cols * rows); i++){
-			jQuery('#stage').append('<div class="stageblock" rel="0" style="background: '+bg+';" />');
+			var rel = leveldata ? leveldata[rowCount][colCount] : 0;
+			
+			jQuery('#stage').append('<div class="stageblock" rel="'+rel+'" style="background: '+tiles[rel]+';" />');
 			jQuery('.stageblock').droppable({ drop: Drop });
+
+			if(colCount < cols-1){
+				colCount++;
+			}else{
+				colCount = 0;
+				rowCount++;
+			}
 		}
 
 		function Drop(event, ui) {
 			jQuery(this).attr('style', selectedTile)
-			.attr('rel', relativeTile);
+						.attr('rel', relativeTile);
 		}
-	});
-
+	}
 
 	jQuery('#exportLevel').click(function(){
 		var exported = '[[';
@@ -99,6 +116,20 @@ jQuery(document).ready(function(){
 		exported += ']]';
 
 		jQuery('#exportResult').html(exported);
+	});
+
+
+	jQuery('#importLevel').click(function(){
+		if(jQuery('#importResult').val()){
+			var levelImport = JSON.parse(jQuery('#importResult').val());
+
+			var sw = levelImport[0].length * 32;
+		 	var sh = levelImport.length * 32;
+		 	var bg = jQuery('#stage_bg').val();
+
+		 	buildStage(sw, sh, bg, levelImport);
+
+		}
 	});
 
 });
