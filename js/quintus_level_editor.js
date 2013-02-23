@@ -58,7 +58,6 @@ jQuery(document).ready(function(){
 		var sw = jQuery('#stage_width').val();
 		var sh = jQuery('#stage_height').val();
 		var bg = jQuery('#stage_bg').val();
-		console.log(bg);
 		buildStage(sw, sh, bg);
 	});
 
@@ -78,8 +77,13 @@ jQuery(document).ready(function(){
 		for(var i = 0; i < (cols * rows); i++){
 			var rel = leveldata ? leveldata[rowCount][colCount] : 0;
 			
-			jQuery('#stage').append('<div class="stageblock" rel="'+rel+'" style="'+tiles[rel]+' background:'+bg+'!important;" />');
+			jQuery('#stage').append('<div id="sb'+i+'" class="stageblock" rel="'+rel+'" style="'+tiles[rel]+' background:'+bg+'!important;" />');
 			jQuery('.stageblock').droppable({ drop: Drop });
+
+			jQuery('#sb'+i+'').on('click', function(){
+				jQuery(this).attr('style', selectedTile)
+						.attr('rel', relativeTile);
+			});
 
 			if(colCount < cols-1){
 				colCount++;
@@ -133,4 +137,7 @@ jQuery(document).ready(function(){
 		}
 	});
 
+	
+
 });
+
