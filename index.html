@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Quintus Level Editor</title>
+	<meta name="description" content="A simple level editor for the Quintus game engine.">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css">
 	<script type="text/javascript" src="js/jquery.1.9.1.js"></script>	
@@ -10,10 +12,14 @@
 </head>
 <body>
 
+	<a href="https://github.com/gvhuyssteen/Quintus-Level-Editor" target="_blank"><img style="position: fixed; bottom: 0; right: 0; border: 0;" src="images/forkme_light_background.png" alt="Fork me on GitHub"></a>
+
 	<div id="assets"></div>
 
 	<div id="controll_bar">
-
+		<h1>QUINTUS LEVEL EDITOR</h1>
+		<p>A simple level editor for the Quintus game engine.</p>
+		<h3>Step 1 - Upload your tiles</h3>
 		<form id="file_upload_form" method="post" enctype="multipart/form-data" action="lib/upload.php">
 			<input name="uploadedfile" id="uploadedfile" size="27" type="file">
 			<label for="sprite_width">Sprite Width:</label>
@@ -31,6 +37,7 @@
 
 		<br/><br />
 
+		<h3>Step 2 - Build your stage</h3>
 		<label for="stage_bg">Background:</label>
 		<input type="text" name="stage_bg" id="stage_bg" value="#6b8cff">
 		<label for="stage_width">Stage Width:</label>
@@ -41,22 +48,36 @@
 
 		<br/><br />
 
+		<h3>Step 3 - Export your level</h3>
 		<button id="exportLevel">Export Level</button><br />
 		<textarea rows="5" cols="35" id="exportResult"></textarea>
 
 		<br/><br />
-
-		<label for="importResult">Import:</label>
-		<textarea rows="5" cols="35" id="importResult"></textarea>
+		<h3>Optional - Import an existing level</h3>
+		<textarea rows="5" cols="35" id="importResult">Paste your JSON level here</textarea>
 		<button id="importLevel">Import Level</button><br />
+
+		<div id="socials">
+			<p>Stalk me at these places</p>
+			<a href="http://www.facebook.com/gvhuyssteen" target="_blank">
+				<div class="facebook"></div>
+			</a>
+			<a href="https://twitter.com/gerrit_vh" target="_blank">
+				<div class="twitter"></div>
+			</a>
+			<a href="http://www.linkedin.com/pub/gerrit-van-huyssteen/56/243/321" target="_blank">
+				<div class="linkedin"></div>
+			</a>
+            <a href="https://github.com/gvhuyssteen" target="_blank">
+            	<div class="github"></div>
+            </a>
+        </div>
 
 	</div>
 
 
 	<div id="stageContainer">
-		<div id="stage">
-
-		</div>
+		<div id="stage"></div>
 	</div>
 
 	<script type="text/javascript">

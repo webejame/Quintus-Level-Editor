@@ -8,17 +8,32 @@ body{
 	font-family: 'Verdana', sans-serif;
 	font-size: 12px;
 }
+h1{
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+}
+h3{
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 5px;
+}
+p{
+	text-align: center;
+	margin: 10px;
+}
 [draggable] {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 #controll_bar{
 	float: left;
 	width: 19%;
 	height: 100%;
 	padding: 5px;
+	display: table;
 	background: #cccccc;
 	border-right: 1px solid #000000;
 }
@@ -59,4 +74,40 @@ body{
 }
 .clearBlock{
 	float:left;
+}
+
+/* Social Networks
+----------------------------------------------- */ 
+
+#socials{
+	margin-top:20px;
+	width: 100%;
+	text-align: center;
+}
+#socials a{
+	text-decoration: none;
+}
+#socials .facebook{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url('../images/socials/facebook.png');
+}
+#socials .twitter{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url('../images/socials/twitter.png');
+}
+#socials .linkedin{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url('../images/socials/linkedin.png');
+}
+#socials .github{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background: url('../images/socials/github.png');
 }
