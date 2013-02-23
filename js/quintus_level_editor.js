@@ -76,8 +76,9 @@ jQuery(document).ready(function(){
 		var colCount = 0;
 		for(var i = 0; i < (cols * rows); i++){
 			var rel = leveldata ? leveldata[rowCount][colCount] : 0;
+			var override_bg = leveldata ? '' : 'background:'+bg+'!important;';
 			
-			jQuery('#stage').append('<div id="sb'+i+'" class="stageblock" rel="'+rel+'" style="'+tiles[rel]+' background:'+bg+'!important;" />');
+			jQuery('#stage').append('<div id="sb'+i+'" class="stageblock" rel="'+rel+'" style="'+tiles[rel]+' '+override_bg+'" />');
 			jQuery('.stageblock').droppable({ drop: Drop });
 
 			jQuery('#sb'+i+'').on('click', function(){
