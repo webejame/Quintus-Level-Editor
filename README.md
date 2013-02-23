@@ -25,8 +25,18 @@ Drag and drop your uploaded tiles onto the stage.
 Export your level and save as json file.
 
 
+To Do List
+=========
+* Adding background images to stage.
+* When dragging a tile onto the stage, it remembers the last tile used and uses it to "paint" the next one.
+
+
 Changelog
 =========
+
+### 0.0.2 Added level importer
+* Added a level importer.
+* Improved stage loading time
 
 ### 0.0.1 Initial Release - 22 Feb 2013 
 * Basic 32px x 32px tile loading.
