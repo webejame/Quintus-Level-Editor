@@ -28,11 +28,14 @@ Export your level and save as json file.
 To Do List
 =========
 * Adding background images to stage.
-* When dragging a tile onto the stage, it remembers the last tile used and uses it to "paint" the next one.
 
 
 Changelog
 =========
+
+### 0.0.3 Added tile painter
+* You can now paint last dragged tile onto the stage
+* Added SEO and links to socials.
 
 ### 0.0.2 Added level importer
 * Added a level importer.
