@@ -3,21 +3,14 @@ session_start();
 
 function user_key( $length ) {
 
-	if(isset($_GET['user_key'])){
+	$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";	
 
-		return $_GET['user_key'];
-
-	}else{
-
-		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";	
-
-		$size = strlen( $chars );
-		for( $i = 0; $i < $length; $i++ ) {
-			$str .= $chars[ rand( 0, $size - 1 ) ];
-		}
-
-		return $str;
+	$size = strlen( $chars );
+	for( $i = 0; $i < $length; $i++ ) {
+		$str .= $chars[ rand( 0, $size - 1 ) ];
 	}
+
+	return $str;
 }
 
 $_SESSION['user_key'] = user_key(10);
