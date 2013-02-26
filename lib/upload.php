@@ -1,6 +1,12 @@
 <?php  
 session_start();
 
+$uploads_path = "../uploads/";
+
+if(!is_dir($uploads_path)){
+	mkdir($uploads_path, 0777);
+}
+
 function user_key( $length ) {
 
 	$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";	
@@ -18,7 +24,7 @@ $_SESSION['user_key'] = user_key(10);
 $target_path = "../uploads/".$_SESSION['user_key'].'/';
 
 if(!is_dir($target_path)){
-	mkdir($target_path);
+	mkdir($target_path, 0777);
 }
 
 $img_data['sw'] = $_POST['sprite_width'];
