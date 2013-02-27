@@ -7,6 +7,8 @@ jQuery(document).ready(function(){
 	var tileCount = 0;
 	var tiles = Array;
 
+	$(function() { $( "#menu" ).menu(); });
+
 	function make_user_key(length)
 	{
 		var text = "";
@@ -138,7 +140,4 @@ jQuery(document).ready(function(){
 		}
 	});
 
-	
-
 });
-

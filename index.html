@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.1.custom.min.css">
 	<script type="text/javascript" src="js/jquery.1.9.1.js"></script>	
 	<script type="text/javascript" src="js/jquery-ui-1.10.1.custom.min.js"></script>	
+	<script type="text/javascript" src="js/accordion.js"></script>
 	<script type="text/javascript" src="js/quintus_level_editor.js"></script>
 </head>
 <body>
@@ -16,7 +17,56 @@
 
 	<div id="assets"></div>
 
-	<div id="controll_bar">
+	<!-- Menu Bar -->
+	<ul id="accordion" data-role="accordion">
+		<li>
+            <a href="#">Tiles</a>
+            <div>
+            	<form id="file_upload_form" method="post" enctype="multipart/form-data" action="lib/upload.php">
+					<input name="uploadedfile" id="uploadedfile" size="27" type="file">
+					<label for="sprite_width">Sprite Width:</label>
+					<input type="text" name="sprite_width" id="sprite_width" value="32">
+					<label for="sprite_height">Sprite Height:</label>
+					<input type="text" name="sprite_height" id="sprite_height" value="32">
+					<label for="start_x">Start X:</label>
+					<input type="text" name="start_x" id="start_x" value="0">
+					<label for="start_y">Start Y:</label>
+					<input type="text" name="start_y" id="start_y" value="0">
+					<label for="sprite_cols">Columns:</label>
+					<input type="text" name="sprite_cols" id="sprite_cols" value="1">
+					<button type="submit" name="action">Upload</button>
+				</form>	
+            </div>
+        </li>
+        <li>
+        	<a href="#">Stage</a>
+			<div>
+				<label for="stage_bg">Background:</label>
+				<input type="text" name="stage_bg" id="stage_bg" value="#6b8cff">
+				<label for="stage_width">Stage Width:</label>
+				<input type="text" name="stage_width" id="stage_width" value="800">
+				<label for="stage_height">Stage Height:</label>
+				<input type="text" name="stage_height" id="stage_height" value="400">
+				<button id="buildstage">Build Stage</button>	
+			</div>
+        </li>
+        <li>
+        	<a href="#">Export</a>
+        	<div>
+        		<button id="exportLevel">Export Level</button><br />
+				<textarea rows="5" cols="35" id="exportResult"></textarea>
+        	</div>
+        </li>
+        <li>
+        	<a href="#">Import</a>
+        	<div>
+        		<textarea rows="5" cols="35" id="importResult">Paste your JSON level here</textarea>
+				<button id="importLevel">Import Level</button><br />
+        	</div>
+        </li>
+	</ul>
+
+	<!-- <div id="controll_bar">
 		<h1>QUINTUS LEVEL EDITOR</h1>
 		<p>A simple level editor for the Quintus game engine.</p>
 		<h3>Step 1 - Upload your tiles</h3>
@@ -73,7 +123,7 @@
             </a>
         </div>
 
-	</div>
+	</div> -->
 
 
 	<div id="stageContainer">
